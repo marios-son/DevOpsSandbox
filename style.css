@@ -5,7 +5,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   font-family: 'Segoe UI', system-ui, sans-serif;
-  background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+  background: linear-gradient(135deg, #f4ecff, #fde8ff);
   margin: 0;
 }
 
@@ -13,14 +13,14 @@ h1 {
   font-size: 3rem;
   margin: 2rem 1rem 1rem;
   text-align: center;
-  color: #1f2933;
+  color: #241B35;
 }
 
 .shapes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 2rem;
-  width: min(900px, 90vw);
+  width: min(950px, 92vw);
 }
 
 .shape-card {
@@ -36,6 +36,7 @@ h1 {
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(31, 41, 55, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--shape-color, #3A7BD5);
 }
 
 .shape-card:hover .shape {
@@ -60,6 +61,7 @@ h1 {
   border-bottom: 150px solid var(--triangle-color, #E95A4A);
   border-radius: 0;
   box-shadow: none;
+  background: none;
 }
 
 .shape-card:hover .shape--triangle {
@@ -67,9 +69,16 @@ h1 {
   filter: drop-shadow(0 12px 18px rgba(31, 41, 55, 0.25));
 }
 
+.shape--star {
+  width: 190px;
+  height: 190px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background-color: var(--shape-color, #B084F6);
+}
+
 .shape-label {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #374151;
+  color: #3c2d57;
 }

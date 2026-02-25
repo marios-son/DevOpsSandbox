@@ -25,10 +25,13 @@
 
           const shapeEl = document.createElement('div');
           shapeEl.className = `shape shape--${shape.type}`;
+          shapeEl.style.setProperty('--shape-color', shape.color);
 
           if (shape.type === 'triangle') {
             shapeEl.style.setProperty('--triangle-color', shape.color);
-          } else {
+          }
+
+          if (!['triangle'].includes(shape.type)) {
             shapeEl.style.backgroundColor = shape.color;
           }
 

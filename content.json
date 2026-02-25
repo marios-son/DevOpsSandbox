@@ -1,9 +1,10 @@
 {
-  "title": "The 4 basic shapes.",
+  "title": "The five complicated shapes.",
   "shapes": [
     { "name": "Square", "type": "square", "color": "#3A7BD5" },
     { "name": "Circle", "type": "circle", "color": "#64C275" },
     { "name": "Rectangle", "type": "rectangle", "color": "#F5C542" },
-    { "name": "Triangle", "type": "triangle", "color": "#E95A4A" }
+    { "name": "Triangle", "type": "triangle", "color": "#E95A4A" },
+    { "name": "Star", "type": "star", "color": "#B084F6" }
   ]
 }
