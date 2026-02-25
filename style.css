@@ -20,7 +20,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 2rem;
-  width: min(950px, 92vw);
+  width: min(1000px, 94vw);
 }
 
 .shape-card {
@@ -37,6 +37,7 @@ h1 {
   box-shadow: 0 12px 30px rgba(31, 41, 55, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   background-color: var(--shape-color, #3A7BD5);
+  position: relative;
 }
 
 .shape-card:hover .shape {
@@ -74,6 +75,34 @@ h1 {
   height: 190px;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   background-color: var(--shape-color, #B084F6);
+}
+
+.shape--cross {
+  width: 180px;
+  height: 180px;
+  background: var(--cross-gradient, linear-gradient(135deg, #FCD34D, #1F2937));
+  box-shadow: none;
+}
+
+.shape--cross::before,
+.shape--cross::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: inherit;
+  border-radius: 12px;
+}
+
+.shape--cross::before {
+  width: 50px;
+  height: 140px;
+}
+
+.shape--cross::after {
+  width: 140px;
+  height: 50px;
 }
 
 .shape-label {

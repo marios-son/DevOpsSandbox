@@ -27,12 +27,20 @@
           shapeEl.className = `shape shape--${shape.type}`;
           shapeEl.style.setProperty('--shape-color', shape.color);
 
+          if (shape.secondary) {
+            shapeEl.style.setProperty('--shape-secondary', shape.secondary);
+          }
+
           if (shape.type === 'triangle') {
             shapeEl.style.setProperty('--triangle-color', shape.color);
           }
 
-          if (!['triangle'].includes(shape.type)) {
+          if (!['triangle', 'cross'].includes(shape.type)) {
             shapeEl.style.backgroundColor = shape.color;
+          }
+
+          if (shape.type === 'cross') {
+            shapeEl.style.setProperty('--cross-gradient', `linear-gradient(135deg, ${shape.color}, ${shape.secondary || '#111827'})`);
           }
 
           const label = document.createElement('p');
