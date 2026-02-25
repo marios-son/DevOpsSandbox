@@ -19,4 +19,4 @@ jobs:
 
       - name: Sync to S3
         run: |
-          aws s3 sync . s3://YOUR_BUCKET_NAME --delete --acl public-read
+          aws s3 sync . s3://clawdbot-website-s3 --delete --acl public-read
