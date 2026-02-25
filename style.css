@@ -20,7 +20,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 2rem;
-  width: min(1000px, 94vw);
+  width: min(1100px, 94vw);
 }
 
 .shape-card {
@@ -101,6 +101,14 @@ h1 {
 .shape--cross::after {
   width: 150px;
   height: 55px;
+}
+
+.shape--minus {
+  width: 210px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: var(--shape-color, #D97706);
+  box-shadow: 0 12px 30px rgba(31, 41, 55, 0.15);
 }
 
 .shape-label {
