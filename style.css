@@ -36,7 +36,7 @@ h1 {
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(31, 41, 55, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  background-color: var(--shape-color, #3A7BD5);
+  background: transparent;
   position: relative;
 }
 
@@ -62,7 +62,6 @@ h1 {
   border-bottom: 150px solid var(--triangle-color, #E95A4A);
   border-radius: 0;
   box-shadow: none;
-  background: none;
 }
 
 .shape-card:hover .shape--triangle {
@@ -74,13 +73,11 @@ h1 {
   width: 190px;
   height: 190px;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  background-color: var(--shape-color, #B084F6);
 }
 
 .shape--cross {
-  width: 180px;
-  height: 180px;
-  background: var(--cross-gradient, linear-gradient(135deg, #FCD34D, #1F2937));
+  width: 190px;
+  height: 190px;
   box-shadow: none;
 }
 
@@ -91,18 +88,19 @@ h1 {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: inherit;
+  background: var(--cross-gradient, linear-gradient(135deg, #FCD34D, #1F2937));
   border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(31, 41, 55, 0.15);
 }
 
 .shape--cross::before {
-  width: 50px;
-  height: 140px;
+  width: 55px;
+  height: 150px;
 }
 
 .shape--cross::after {
-  width: 140px;
-  height: 50px;
+  width: 150px;
+  height: 55px;
 }
 
 .shape-label {
