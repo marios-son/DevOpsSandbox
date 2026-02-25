@@ -7,16 +7,44 @@
 </head>
 <body>
   <h1 id="main-title">Loading...</h1>
-  <div id="color-square"></div>
+  <div id="shapes" class="shapes" aria-live="polite"></div>
 
   <script>
     fetch('content.json')
       .then(response => response.json())
       .then(data => {
-        document.getElementById('main-title').textContent = data.title;
-        document.getElementById('color-square').style.backgroundColor = data.squareColor;
+        const titleEl = document.getElementById('main-title');
+        const shapesContainer = document.getElementById('shapes');
+
+        titleEl.textContent = data.title;
+        shapesContainer.innerHTML = '';
+
+        (data.shapes || []).forEach(shape => {
+          const card = document.createElement('div');
+          card.className = 'shape-card';
+
+          const shapeEl = document.createElement('div');
+          shapeEl.className = `shape shape--${shape.type}`;
+
+          if (shape.type === 'triangle') {
+            shapeEl.style.setProperty('--triangle-color', shape.color);
+          } else {
+            shapeEl.style.backgroundColor = shape.color;
+          }
+
+          const label = document.createElement('p');
+          label.className = 'shape-label';
+          label.textContent = shape.name;
+
+          card.appendChild(shapeEl);
+          card.appendChild(label);
+          shapesContainer.appendChild(card);
+        });
       })
-      .catch(err => console.error('Failed to load content:', err));
+      .catch(err => {
+        console.error('Failed to load content:', err);
+        document.getElementById('main-title').textContent = 'Content failed to load';
+      });
   </script>
 </body>
 </html>
