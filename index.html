@@ -24,23 +24,31 @@
           card.className = 'shape-card';
 
           const shapeEl = document.createElement('div');
-          shapeEl.className = `shape shape--${shape.type}`;
-          shapeEl.style.setProperty('--shape-color', shape.color);
+          const type = shape.type || 'square';
+          shapeEl.className = `shape shape--${type}`;
 
-          if (shape.secondary) {
-            shapeEl.style.setProperty('--shape-secondary', shape.secondary);
+          const primaryColor = shape.color || '#3A7BD5';
+          const secondaryColor = shape.secondary || primaryColor;
+          const gradient = `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`;
+
+          shapeEl.style.setProperty('--shape-color', primaryColor);
+          shapeEl.style.setProperty('--shape-secondary', secondaryColor);
+          shapeEl.style.setProperty('--shape-gradient', gradient);
+
+          if (type === 'triangle') {
+            shapeEl.style.setProperty('--triangle-color', primaryColor);
           }
 
-          if (shape.type === 'triangle') {
-            shapeEl.style.setProperty('--triangle-color', shape.color);
+          if (type === 'cross') {
+            shapeEl.style.setProperty('--cross-gradient', gradient);
           }
 
-          if (!['triangle', 'cross'].includes(shape.type)) {
-            shapeEl.style.backgroundColor = shape.color;
+          if (type === 'infinity') {
+            shapeEl.style.setProperty('--infinity-gradient', gradient);
           }
 
-          if (shape.type === 'cross') {
-            shapeEl.style.setProperty('--cross-gradient', `linear-gradient(135deg, ${shape.color}, ${shape.secondary || '#111827'})`);
+          if (!['triangle', 'cross', 'infinity'].includes(type)) {
+            shapeEl.style.backgroundColor = primaryColor;
           }
 
           const label = document.createElement('p');
