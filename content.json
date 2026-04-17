@@ -1,5 +1,5 @@
 {
-  "title": "The nine complicated shapes.",
+  "title": "The seven complicated shapes.",
   "shapes": [
     { "name": "Circle", "type": "circle", "color": "#64C275" },
     { "name": "Rectangle", "type": "rectangle", "color": "#F5C542" },
