@@ -7,7 +7,16 @@
 </head>
 <body>
   <h1 id="main-title">Loading...</h1>
-  <div id="shapes" class="shapes" aria-live="polite"></div>
+
+  <section>
+    <h2>Flat Shapes</h2>
+    <div id="shapes" class="shapes" aria-live="polite"></div>
+  </section>
+
+  <section>
+    <h2 id="three-d-title"></h2>
+    <div id="three-d" class="three-d-grid"></div>
+  </section>
 
   <script>
     fetch('content.json')
@@ -15,6 +24,8 @@
       .then(data => {
         const titleEl = document.getElementById('main-title');
         const shapesContainer = document.getElementById('shapes');
+        const threeDTitle = document.getElementById('three-d-title');
+        const threeDContainer = document.getElementById('three-d');
 
         titleEl.textContent = data.title;
         shapesContainer.innerHTML = '';
@@ -58,6 +69,49 @@
           card.appendChild(shapeEl);
           card.appendChild(label);
           shapesContainer.appendChild(card);
+        });
+
+        threeDTitle.textContent = data.threeD?.title || '3D Showcase';
+        threeDContainer.innerHTML = '';
+
+        (data.threeD?.items || []).forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'shape-card three-d-card';
+
+          const threeDEl = document.createElement('div');
+          threeDEl.className = `three-d three-d--${item.type}`;
+
+          if (item.type === 'cube') {
+            const faces = item.faces || ['#0EA5E9', '#7DD3FC', '#1D4ED8'];
+            ['front', 'top', 'side'].forEach((face, idx) => {
+              const f = document.createElement('div');
+              f.className = `cube-face cube-face--${face}`;
+              f.style.backgroundColor = faces[idx % faces.length];
+              threeDEl.appendChild(f);
+            });
+          }
+
+          if (item.type === 'pyramid') {
+            const faces = item.faces || ['#F472B6', '#FB7185', '#FDE68A'];
+            ['front', 'left', 'right'].forEach((face, idx) => {
+              const f = document.createElement('div');
+              f.className = `pyramid-face pyramid-face--${face}`;
+              f.style.background = faces[idx % faces.length];
+              threeDEl.appendChild(f);
+            });
+            const base = document.createElement('div');
+            base.className = 'pyramid-base';
+            base.style.background = faces[2];
+            threeDEl.appendChild(base);
+          }
+
+          const label = document.createElement('p');
+          label.className = 'shape-label';
+          label.textContent = item.name;
+
+          card.appendChild(threeDEl);
+          card.appendChild(label);
+          threeDContainer.appendChild(card);
         });
       })
       .catch(err => {

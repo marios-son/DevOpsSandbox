@@ -8,5 +8,20 @@
     { "name": "Minus", "type": "minus", "color": "#D97706" },
     { "name": "Leukios", "type": "hexagon", "color": "#FFFFFF" },
     { "name": "Aurora Loop", "type": "infinity", "color": "#8B5CF6", "secondary": "#EC4899" }
-  ]
+  ],
+  "threeD": {
+    "title": "3D Objects Gallery",
+    "items": [
+      {
+        "name": "Prism Cube",
+        "type": "cube",
+        "faces": ["#0EA5E9", "#7DD3FC", "#1D4ED8"]
+      },
+      {
+        "name": "Neon Pyramid",
+        "type": "pyramid",
+        "faces": ["#F472B6", "#FB7185", "#FDE68A"]
+      }
+    ]
+  }
 }
